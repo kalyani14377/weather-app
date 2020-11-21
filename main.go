@@ -9,8 +9,7 @@ import (
 	"os"
     "github.com/joho/godotenv"
     "time"
-    "weather"
-    "./weather/weather.go"
+    "github.com/kalyani14377/weather-app/weather"
 )
 
 

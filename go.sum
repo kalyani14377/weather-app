@@ -1,2 +1,4 @@
 github.com/joho/godotenv v1.3.0 h1:Zjp+RcGpHhGlrMbJzXTrZZPrWj+1vfm90La1wgB6Bhc=
 github.com/joho/godotenv v1.3.0/go.mod h1:7hK45KPybAkOC6peb+G5yklZfMxEjkZhHbwpqxOKXbg=
+github.com/kalyani14377/weather-app v0.0.0-20201121063951-bcde759e91a9 h1:++EHAdrFDRIfpoLGc4e5CC7nQVyJr3WvNB51bBNE+a0=
+github.com/kalyani14377/weather-app/weather v0.0.0-20201121063951-bcde759e91a9 h1:jv4Hei6Lo1JmKljmx8l/ZH5S8PUx8diJzaPe5Ip1qfA=
