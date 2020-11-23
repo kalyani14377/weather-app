@@ -9,7 +9,7 @@ import (
 	"os"
     "github.com/joho/godotenv"
 	"time"
-	"weather-app/weather"
+	"./weather"
 	"strings"
 	"fmt"
 )
