@@ -1,3 +1,19 @@
-h1 {
-    color:red;
+button{
+    cursor: pointer;
+    font-size: 14px;
+    color: #fff;
+    background: #888;
+    border: 1px solid #888;
+    padding: 8px;
+}
+input {
+    width: 250px;
+    font-size: 14px;
+    border: 1px solid #ccc;
+    padding: 8px;
+}
+body{
+    max-width: 700px;
+    margin:  30px auto;
+
 }

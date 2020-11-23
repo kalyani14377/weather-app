@@ -8,10 +8,16 @@ import (
 	"net/url"
 	"os"
     "github.com/joho/godotenv"
-    "time"
-    "github.com/kalyani14377/weather-app/weather"
+	"time"
+	"weather-app/weather"
+	"strings"
+	"fmt"
 )
 
+type Search struct {
+	Query      string
+	Results    *weather.ForecastResults
+}
 
 var tpl = template.Must(template.ParseFiles("index.html"))
 
@@ -41,8 +47,8 @@ func main() {
     mux := http.NewServeMux()
 
 	mux.Handle("/assets/", http.StripPrefix("/assets/", fs))
-    // mux.HandleFunc("/", indexHandler)
-    mux.HandleFunc("/", searchHandler(weatherapi))
+    mux.HandleFunc("/", indexHandler)
+    mux.HandleFunc("/search", searchHandler(weatherapi))
 	http.ListenAndServe(":"+port, mux)
 }
 
@@ -55,10 +61,8 @@ func searchHandler(weatherapi *weather.Client) http.HandlerFunc {
 		}
 
 		params := u.Query()
-        searchQuery := params.Get("location")
-        
-        results, err := weatherapi.FetchWeather(searchQuery)
-        log.Println(results);
+		searchQuery := params.Get("location")
+		results, err := weatherapi.FetchWeather(searchQuery)
 		if err != nil {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
@@ -66,7 +70,7 @@ func searchHandler(weatherapi *weather.Client) http.HandlerFunc {
 
 
 		search := &Search{
-			Query:      searchQuery,
+			Query:      strings.Title(searchQuery),
 			Results:    results,
 		}
 
@@ -76,7 +80,7 @@ func searchHandler(weatherapi *weather.Client) http.HandlerFunc {
 			http.Error(w, err.Error(), http.StatusInternalServerError)
 			return
 		}
-
+		fmt.Println(results)
 		buf.WriteTo(w)
 	}
 }
