@@ -12,8 +12,21 @@ input {
     border: 1px solid #ccc;
     padding: 8px;
 }
-body{
+.main{
     max-width: 700px;
     margin:  30px auto;
-
+}
+footer {
+    position: absolute;
+    bottom: 0;
+    background: black;
+    color: white;
+    height: 100px;
+    text-align: center;
+    width: 100vw;
+    padding: 15px;
+}
+body {
+    margin:0;
+    overflow-x: hidden;
 }

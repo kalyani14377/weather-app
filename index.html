@@ -1,24 +1,31 @@
 <head>
     <link rel="stylesheet" href="/assets/style.css" />
-    <h1>Weather Home Page</h1>
-    <form action="/search" method="GET">
-        <input
-          autofocus
-          class="search-input"
-          placeholder="Enter a location"
-          type="text"
-          name="location"
-          value="{{.Query}}"
-        />
-        <button type="submit">search</button>
-        <a href="/">Clear</a>
-      </form>
-      <h2>{{.Query}}</h2>
-      {{ range.Results.Data }}
-      <hr>
-      <p>Summary: {{.Weather.Description}}</p>
-      <p>Current Temperature: {{.Temp}}Celcius</p>
-      <p>Feels Like: {{.AppTemp }} Celcius</p>
-      {{ end }}
 </head>
+<body>
+<div class="main">
+  <h1>Weather Home Page</h1>
+  <form action="/search" method="GET">
+      <input
+        autofocus
+        class="search-input"
+        placeholder="Enter a location"
+        type="text"
+        name="location"
+        value="{{.Query}}"
+      />
+      <button type="submit">search</button>
+      <a href="/">Clear</a>
+    </form>
+    <h2>{{.Query}}</h2>
+    {{ range.Results.Data }}
+    <hr>
+    <p>Summary: {{.Weather.Description}}</p>
+    <p>Current Temperature: {{.Temp}}Celcius</p>
+    <p>Feels Like: {{.AppTemp }} Celcius</p>
+    {{ end }}
+  </div>
+  <footer>
+    Made with ❤️  by Kalyani Appani
+  </footer>  
+</body>
 
